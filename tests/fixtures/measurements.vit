@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<measurements version="0.5.1" units="cm" fullName="Standard Size 12" email=""
+              birthDate="" gender="female" pmSystem="p998">
+  <m name="height" value="168"/>
+  <m name="bust" value="88"/>
+  <m name="waist" value="68"/>
+  <m name="hip" value="96"/>
+  <m name="hip_height" value="60"/>
+  <m name="neck" value="36"/>
+  <m name="shoulder_width" value="38"/>
+  <m name="back_length" value="40"/>
+  <m name="front_length" value="42"/>
+  <m name="sleeve_length" value="60"/>
+  <m name="armhole_depth" value="20"/>
+</measurements>

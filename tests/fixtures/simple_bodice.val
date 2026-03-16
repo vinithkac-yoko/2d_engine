@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pattern version="0.8.9" fullName="Simple Bodice" email="" description="Basic front bodice sloper" notes=""
+         patternNumber="" company="" customer="" measurementFile="measurements.vit"
+         unit="cm" labelDateFormat="" labelPathFormat="">
+  <patternName>Simple Bodice</patternName>
+  <patternMaterials/>
+  <draw name="Bodice Front">
+    <calculation>
+      <!-- Origin point -->
+      <point type="single" id="1" name="A" x="0.5" y="1.0" mx="0.1" my="0.15" showPointName="true"/>
+      <!-- Neck point: 2cm down from A -->
+      <point type="endLine" id="2" name="A1" basePoint="1" length="2.0" angle="270" mx="0.1" my="0.15"
+             typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Shoulder: bust/4 + 1 across from A -->
+      <point type="endLine" id="3" name="A2" basePoint="1" length="bust/4+1" angle="0" mx="0.1" my="0.15"
+             typeLine="hair" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Armhole depth: bust/8 + 1.5 down from A2 -->
+      <point type="normal" id="4" name="A3" firstPoint="1" secondPoint="3" length="bust/8+1.5" angle="0"
+             mx="0.1" my="0.15" typeLine="hair" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Waist point: waist/4 across, hip_height down -->
+      <point type="endLine" id="5" name="A4" basePoint="1" length="hip_height" angle="270" mx="0.1" my="0.15"
+             typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Side waist: waist/4 across from A4 -->
+      <point type="endLine" id="6" name="A5" basePoint="5" length="waist/4+1" angle="0" mx="0.1" my="0.15"
+             typeLine="hair" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Dart midpoint along waist line -->
+      <point type="alongLine" id="7" name="D1" firstPoint="5" secondPoint="6" length="(waist/4+1)/2" mx="0.1" my="0.15"
+             typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Dart intake point 1 -->
+      <point type="endLine" id="8" name="D2" basePoint="7" length="(bust-waist)/8" angle="0" mx="0.1" my="0.15"
+             typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Dart intake point 2 -->
+      <point type="endLine" id="9" name="D3" basePoint="7" length="(bust-waist)/8" angle="180" mx="0.1" my="0.15"
+             typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Dart apex -->
+      <point type="normal" id="10" name="D4" firstPoint="8" secondPoint="9" length="12" angle="0"
+             mx="0.1" my="0.15" typeLine="none" lineWeight="0.35" lineColor="black" showPointName="true"/>
+      <!-- Construction lines -->
+      <line firstPoint="1" secondPoint="2" typeLine="hair" lineWeight="0.35" lineColor="black"/>
+      <line firstPoint="1" secondPoint="3" typeLine="hair" lineWeight="0.35" lineColor="black"/>
+      <line firstPoint="3" secondPoint="4" typeLine="hair" lineWeight="0.35" lineColor="black"/>
+      <line firstPoint="5" secondPoint="6" typeLine="hair" lineWeight="0.35" lineColor="black"/>
+    </calculation>
+    <modeling/>
+  </draw>
+  <pieces>
+    <piece id="11" name="Front Bodice" inLayout="1" seamAllowance="1" width="1.0" united="0" version="2">
+      <nodes>
+        <node idObject="1" type="NodePoint"/>
+        <node idObject="3" type="NodePoint"/>
+        <node idObject="4" type="NodePoint"/>
+        <node idObject="6" type="NodePoint"/>
+        <node idObject="5" type="NodePoint"/>
+      </nodes>
+    </piece>
+  </pieces>
+  <groups/>
+</pattern>
