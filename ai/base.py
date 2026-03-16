@@ -1,9 +1,8 @@
-"""Abstract AI provider interface."""
+"""Shared data classes for AI messaging."""
 
-from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional, AsyncIterator
+from typing import Optional
 
 
 class ContentType(Enum):
@@ -53,28 +52,3 @@ class AIResponse:
     raw: Optional[object] = None
 
 
-class AIProvider(ABC):
-    @abstractmethod
-    async def complete(self, messages: list, system_prompt: str = "",
-                       tools: Optional[list] = None,
-                       max_tokens: int = 4096,
-                       temperature: float = 0.3) -> AIResponse:
-        ...
-
-    @abstractmethod
-    async def stream(self, messages: list, system_prompt: str = "",
-                     tools: Optional[list] = None,
-                     max_tokens: int = 4096) -> AsyncIterator[str]:
-        ...
-
-    @property
-    @abstractmethod
-    def supports_images(self) -> bool: ...
-
-    @property
-    @abstractmethod
-    def supports_pdfs(self) -> bool: ...
-
-    @property
-    @abstractmethod
-    def model_name(self) -> str: ...

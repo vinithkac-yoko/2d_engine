@@ -82,13 +82,7 @@ async def chat_websocket(
                 elif att_type == "application/pdf" and att_data:
                     import base64
                     raw_bytes = base64.b64decode(att_data)
-                    if agent.provider.supports_pdfs:
-                        attachments.append(ContentPart.pdf(raw_bytes))
-                    else:
-                        # Extract text from PDF
-                        text = _extract_pdf_text(raw_bytes)
-                        if text:
-                            attachments.append(ContentPart.text(f"[PDF content]\n{text}"))
+                    attachments.append(ContentPart.pdf(raw_bytes))
 
             try:
                 reply, pattern, changed_ids = await agent.process_turn(
@@ -115,12 +109,3 @@ async def chat_websocket(
     except WebSocketDisconnect:
         pass
 
-
-def _extract_pdf_text(data: bytes) -> str:
-    try:
-        import io
-        from pypdf import PdfReader
-        reader = PdfReader(io.BytesIO(data))
-        return "\n".join(page.extract_text() or "" for page in reader.pages)
-    except Exception:
-        return ""

@@ -5,10 +5,10 @@ from typing import Optional, AsyncIterator
 
 import anthropic
 
-from ..base import AIProvider, AIResponse, ContentPart, ContentType, Message
+from ..base import AIResponse, ContentPart, ContentType, Message
 
 
-class ClaudeProvider(AIProvider):
+class ClaudeProvider:
     """Anthropic Claude API — supports text, images, and PDFs natively."""
 
     def __init__(self, api_key: str, model: str = "claude-sonnet-4-6"):

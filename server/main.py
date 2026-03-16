@@ -17,22 +17,12 @@ logger = logging.getLogger(__name__)
 
 
 def _create_agent():
-    """Instantiate the AI agent based on config."""
     from ai.agent import PatternDesignAgent
-
-    if settings.ai_provider == "claude":
-        from ai.providers.claude import ClaudeProvider
-        provider = ClaudeProvider(
-            api_key=settings.anthropic_api_key,
-            model=settings.claude_model,
-        )
-    else:
-        from ai.providers.openai import OpenAIProvider
-        provider = OpenAIProvider(
-            api_key=settings.openai_api_key,
-            model=settings.openai_model,
-        )
-
+    from ai.providers.claude import ClaudeProvider
+    provider = ClaudeProvider(
+        api_key=settings.anthropic_api_key,
+        model=settings.claude_model,
+    )
     return PatternDesignAgent(provider=provider)
 
 

@@ -4,7 +4,7 @@ import json
 import logging
 from typing import Optional
 
-from .base import AIProvider, Message, ContentPart
+from .base import Message, ContentPart
 from .context import ConversationContext, PatternContext
 from .prompts import build_system_prompt
 from .tools import PATTERN_TOOLS
@@ -42,7 +42,7 @@ class PatternDesignAgent:
 
     MAX_TOOL_ITERATIONS = 5
 
-    def __init__(self, provider: AIProvider):
+    def __init__(self, provider):
         self.provider = provider
 
     async def process_turn(
